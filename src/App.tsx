@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css"; // Import the CSS file
 
 const App: React.FC = () => {
   const [books, setBooks] = useState<any[]>([]);
@@ -29,25 +30,27 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Book List</h1>
-      <button onClick={loadBooks}>Load Books</button>
-      <table border={1}>
+    <div className="container">
+      <h1 className="header">Book List</h1>
+      <button className="button" onClick={loadBooks}>
+        Load Books
+      </button>
+      <table className="table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Price</th>
+            <th className="th">ID</th>
+            <th className="th">Title</th>
+            <th className="th">Author</th>
+            <th className="th">Price</th>
           </tr>
         </thead>
         <tbody>
           {books.map((book) => (
-            <tr key={book.id}>
-              <td>{book.id}</td>
-              <td>{book.title}</td>
-              <td>{book.author}</td>
-              <td>{book.price}</td>
+            <tr key={book.id} className="tr">
+              <td className="td">{book.id}</td>
+              <td className="td">{book.title}</td>
+              <td className="td">{book.author}</td>
+              <td className="td">{book.price}</td>
             </tr>
           ))}
         </tbody>
